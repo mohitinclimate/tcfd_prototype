@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TCFD Result</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2rem; }
+      .section { margin-bottom: 1.5rem; }
+      .heading { font-weight: bold; color: #2c3e50; }
+      .item { margin-left: 1rem; color: #34495e; }
+      .tag { font-style: italic; color: #888; }
+    </style>
+  </head>
+  <body>
+    <h1>TCFD Assessment Result</h1>
+    <div class="section">
+      <div class="heading">Company:</div>
+      <div class="item">{{ company }}</div>
+    </div>
+    <div class="section">
+      <div class="heading">Industry:</div>
+      <div class="item">{{ industry }}</div>
+    </div>
+    <div class="section">
+      <div class="heading">Location:</div>
+      <div class="item">{{ location }}</div>
+    </div>
+    <div class="section">
+      <div class="heading">Climate Goal:</div>
+      <div class="item">{{ climate_goal }}</div>
+    </div>
+
+    <div class="section">
+      <div class="heading">Risks:</div>
+      <ul>
+      {% for r in risks %}
+        <li class="item">{{ r }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="section">
+      <div class="heading">Opportunities:</div>
+      <ul>
+      {% for o in opportunities %}
+        <li class="item">{{ o }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="section">
+      <div class="heading">Recommendations:</div>
+      <ul>
+      {% for rec in recommendations %}
+        <li class="item">{{ rec }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="section">
+      <div class="heading">TCFD Guidance:</div>
+      <ul>
+        <li class="item"><span class="tag">Governance:</span> {{ tcfd_guidance.governance }}</li>
+        <li class="item"><span class="tag">Strategy:</span> {{ tcfd_guidance.strategy }}</li>
+        <li class="item"><span class="tag">Risk Management:</span> {{ tcfd_guidance.risk_management }}</li>
+        <li class="item"><span class="tag">Metrics & Targets:</span> {{ tcfd_guidance.metrics_targets }}</li>
+      </ul>
+    </div>
+  </body>
+</html>
